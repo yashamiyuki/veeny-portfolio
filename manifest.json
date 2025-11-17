@@ -1,0 +1,23 @@
+{
+    "name": "Veeny Ree Mae Bautista - UI/UX Designer",
+    "short_name": "Veeny Portfolio",
+    "description": "Portfolio of Veeny Ree Mae Bautista - UI/UX Designer & Web Developer",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1E1E2E",
+    "theme_color": "#8A2BE2",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["design", "portfolio", "development"]
+}

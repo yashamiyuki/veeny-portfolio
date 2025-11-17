@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veeny Ree Mae Bautista | UI/UX Designer & Web Developer</title>
+    <meta name="description" content="Veeny Ree Mae Bautista - UI/UX Designer & Creative Developer. Specializing in user-centered design, front-end development, and creating beautiful digital experiences.">
+    <meta name="keywords" content="UI/UX Designer, Web Developer, Front-end Developer, Portfolio, Bataan Peninsula State University, Figma, HTML, CSS, JavaScript, React">
+    <meta name="author" content="Veeny Ree Mae Bautista">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#8A2BE2">
+    <meta name="msapplication-TileColor" content="#8A2BE2">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Veeny Ree Mae Bautista | UI/UX Designer & Web Developer">
+    <meta property="og:description" content="UI/UX Designer & Creative Developer specializing in user-centered design and front-end development. View my portfolio and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://veenyreemae.com">
+    <meta property="og:image" content="https://veenyreemae.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Veeny Ree Mae Bautista Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Veeny Ree Mae Bautista | UI/UX Designer & Web Developer">
+    <meta name="twitter:description" content="UI/UX Designer & Creative Developer specializing in user-centered design and front-end development.">
+    <meta name="twitter:image" content="https://veenyreemae.com/images/twitter-image.jpg">
+    <meta name="twitter:site" content="@yourusername">
+    <meta name="twitter:creator" content="@yourusername">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Veeny Ree Mae Bautista",
+        "jobTitle": "UI/UX Designer & Web Developer",
+        "url": "https://veenyreemae.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/veenyreemaebautista",
+            "https://github.com/yashamiyuki",
+            "https://web.facebook.com/vny.bautista"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Bataan Peninsula State University"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bataan Peninsula State University"
+        }
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Enhanced Background Elements -->
+    <div class="background-elements">
+        <div class="bg-gradient"></div>
+        <div class="bg-grid"></div>
+        <div class="bg-shapes">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+            <div class="bg-shape bg-shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Enhanced Launch Screen -->
+    <div class="launch-screen" id="launchScreen">
+        <div class="floral-decoration">
+            <div class="floral-item floral-1">🌸</div>
+            <div class="floral-item floral-2">💮</div>
+            <div class="floral-item floral-3">🌺</div>
+            <div class="floral-item floral-4">🌷</div>
+            <div class="floral-item floral-5">🌼</div>
+            <div class="floral-item floral-6">💐</div>
+        </div>
+        <div class="particles" id="particlesContainer"></div>
+        <div class="launch-container">
+            <div class="main-logo">🌸</div>
+            <h1 class="name-title">Veeny Ree Mae Bautista</h1>
+            <p class="subtitle">UI/UX & Web Developer</p>
+            <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Modal -->
+    <div class="modal" id="logoModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-content">
+            <img src="" alt="Certificate Logo" class="modal-logo" id="modalLogo">
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close" id="contactModalClose">&times;</button>
+            <div class="contact-modal-icon">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+            <h2 class="contact-modal-title">Message Sent Successfully!</h2>
+            <p class="contact-modal-message">Thank you for reaching out! I've received your message and will get back to you within 24-48 hours. I look forward to connecting with you!</p>
+            <div class="contact-modal-actions">
+                <button class="btn" id="contactModalOk">OK</button>
+                <a href="mailto:vnybtst@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Email Directly
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Veeny<span>Ree</span></a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>UI/UX Designer & <span class="gradient-text">Creative Developer</span></h1>
+                <p>I craft beautiful, functional digital experiences with a focus on user-centered design and modern aesthetics. Currently pursuing a Bachelor of Science in Information Technology.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                    <a href="#certifications" class="btn btn-outline"><i class="fas fa-award"></i> View Certifications</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Learn more about my background, education, and design philosophy</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>UI/UX Designer & Creative Thinker</h3>
+                    <p>I'm a passionate Information Technology student at Bataan Peninsula State University with a strong focus on UI/UX design and front-end development. My journey began in high school with a focus on Computer Systems Servicing, and turn into a love for creating intuitive digital experiences.</p>
+                    <p>I believe that good design is not just about aesthetics but about solving problems and creating meaningful interactions. My approach combines user research, thoughtful information architecture, and visual design principles to create products that are both beautiful and functional.</p>
+                    <p>When I'm not designing or coding, I enjoy exploring new design trends, contributing to design communities, and creating digital art that pushes creative boundaries.</p>
+                    <a href="Veeny Ree Mae Bautista - Resume.pdf" class="btn" download><i class="fas fa-download"></i> Download Resume</a>
+                </div>
+                <div class="about-image">
+                    <div class="profile-container">
+                        <div class="profile-decoration">
+                            <div class="decoration-dot dot-1"></div>
+                            <div class="decoration-dot dot-2"></div>
+                            <div class="decoration-dot dot-3"></div>
+                            <div class="decoration-dot dot-4"></div>
+                            <div class="decoration-dot dot-5"></div>
+                            <div class="decoration-dot dot-6"></div>
+                        </div>
+                        <!-- Change from: -->
+<img src="profile picture - bautista.jpg" class="profile-img" alt="Veeny Ree Mae Bautista">
+
+<!-- To: -->
+<img data-src="profile picture - bautista.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 380'%3E%3Crect width='380' height='380' fill='%232D2D44'/%3E%3C/svg%3E" 
+     class="profile-img lazy" alt="Veeny Ree Mae Bautista">
+                        <div class="profile-frame"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Design & Technical Skills</h2>
+                <p>My expertise spans across UI/UX design, front-end development, and digital tools</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-palette"></i> UI/UX Design</h3>
+                    <ul>
+                        <li>Figma</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>User Research</li>
+                        <li>Design Systems</li>
+                        <li>UX Writing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Web Development</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript</li>
+                        <li>SQL & Vercel</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <ul>
+                        <li>Network Security</li>
+                        <li>Device Configuration & Management</li>
+                        <li>Cyber Threat Management</li>
+                        <li>Security Protocols</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Professional Skills</h3>
+                    <ul>
+                        <li>Project & Time Management</li>
+                        <li>Adaptability and Collaboration</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Showcasing my design process and implemented systems</p>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX Design</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+            </div>
+            <div class="projects-grid">
+                <!-- SmartFit Project -->
+                <div class="project-card" data-category="ui-ux">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="SmartFit AR Footwear Retail">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="role-badge">UI/UX Designer & System Documentation</span>
+                        <h3>SmartFit: AR Footwear Retail Portal</h3>
+                        <p>Augmented Reality-integrated e-commerce platform with AI-powered footwear customization and virtual try-on experiences. Led UI/UX design and created comprehensive system documentation including UML, DFDs, Use Cases, ERDs, and SRS.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">UI/UX Design</span>
+                            <span class="project-tag">System Documentation</span>
+                            <span class="project-tag">UML/DFD/ERD</span>
+                            <span class="project-tag">E-commerce</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="SMARTFIT_IMRAD.pdf" class="project-link"><i class="fas fa-file-alt"></i> Documentation</a>
+                            <a href="#" class="project-link"><i class="fas fa-layer-group"></i> System Design</a> <!-- https://www.figma.com/proto/PcQEt8UqSuF8G2eRosrWxx/SMARTFIT---Capstone-1?node-id=0-1&t=6BT9tr29VcLEAhv0-1 -->
+
+                            <a href="https://smart-fit-ar.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Diwata Yoga Project -->
+                <div class="project-card" data-category="development">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1120&q=80" alt="Diwata Yoga Platform">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="role-badge">Assistant Developer & UI/UX Designer</span>
+                        <h3>Diwata Yoga: Immersive Wellness Platform</h3>
+                        <p>Comprehensive yoga platform with multimedia content, personalized growth tracking, and responsive web design. Developed front-end functionality and refined user interfaces for an intuitive experience.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML/CSS/JS</span>
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">UX Writing</span>
+                            <span class="project-tag">Web Development</span>
+                            <span class="project-tag">Responsive Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://diwatayoga.vercel.app/index.html" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OpporUnity Project -->
+                <div class="project-card" data-category="ui-ux">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="OpporUnity Job Portal">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-completed">Completed</span>
+                        <span class="role-badge">UI/UX Designer</span>
+                        <h3>OpporUnity: Job Search Portal</h3>
+                        <p>Modern job search platform with smart filters, company insights, and application tracking for seamless career advancement. Designed the complete user interface and experience with focus on usability and accessibility.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">UI Design</span>
+                            <span class="project-tag">User Research</span>
+                            <span class="project-tag">Prototyping</span>
+                            <span class="project-tag">Wireframing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-figma"></i> Prototype</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+                <p>Industry-recognized certifications that validate my technical expertise</p>
+            </div>
+            <div class="certifications-grid">
+                <!-- Microsoft Office Specialist - Associate -->
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="MOS Associate - Bautista.png">
+                        <img src="MOS Associate - Bautista.png" alt="Microsoft Office Specialist Associate">
+                    </div>
+                    <h3>Microsoft Office Specialist: Associate Microsoft 365 Apps</h3>
+                    <p>Microsoft 365 Apps</p>
+                    <span class="cert-year">2025</span>
+                    <a href="Associate (Microsoft 365 Apps).pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+
+                <!-- Microsoft Office Certifications -->
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="MOS Word-Bautista.png">
+                        <img src="MOS Word-Bautista.png" alt="Microsoft Word Certification">
+                    </div>
+                    <h3>Microsoft Office Specialist: Word Associate</h3>
+                    <p>Microsoft 365 Apps</p>
+                    <span class="cert-year">2025</span>
+                    <a href="Word Associate (Microsoft 365 Apps).pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="MOS Powerpoint-Bautista.png">
+                        <img src="MOS Powerpoint-Bautista.png" alt="Microsoft PowerPoint Certification">
+                    </div>
+                    <h3>Microsoft Office Specialist: PowerPoint Associate</h3>
+                    <p>Microsoft 365 Apps</p>
+                    <span class="cert-year">2025</span>
+                    <a href="PowePoint Associate (Microsoft 365 Apps).pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="MOS Excel-Bautista.png">
+                        <img src="MOS Excel-Bautista.png" alt="Microsoft Excel Certification">
+                    </div>
+                    <h3>Microsoft Office Specialist: Excel Associate</h3>
+                    <p>Microsoft 365 Apps</p>
+                    <span class="cert-year">2025</span>
+                    <a href="Excel Associate (Microsoft 365 Apps).pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+
+                <!-- IT Specialist Certifications -->
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="ITS -Badges_Network-Security.png">
+                        <img src="ITS-Badges_Network-Security.png" alt="Network Security Certification">
+                    </div>
+                    <h3>IT Specialist – Network Security</h3>
+                    <p>Proven ability to protect and manage secure networks</p>
+                    <span class="cert-year">2025</span>
+                    <a href="ITS Network Security.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="ITS -Badges_Device-Configure.png">
+                        <img src="ITS-Badges_Device-Configure.png" alt="Device Configuration Certification">
+                    </div>
+                    <h3>IT Specialist – Device Configuration & Management</h3>
+                    <p>Skilled in configuring and maintaining digital devices</p>
+                    <span class="cert-year">2025</span>
+                    <a href="ITS Device Configuration and Management.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="ITS -Badges-Cybersecurity.png">
+                        <img src="ITS-Badges-Cybersecurity.png" alt="Cybersecurity Certification">
+                    </div>
+                    <h3>IT Specialist – Cybersecurity</h3>
+                    <p>Certified in securing systems and safeguarding data</p>
+                    <span class="cert-year">2024</span>
+                    <a href="ITS Cybersecurity.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+
+                <!-- Other Certifications -->
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="Cyber Threat Management.png">
+                        <img src="Cyber Threat Management.png" alt="Cyber Threat Management Certification">
+                    </div>
+                    <h3>Cyber Threat Management</h3>
+                    <p>Trained to identify and respond to cybersecurity threats</p>
+                    <span class="cert-year">2024</span>
+                    <a href="ITS Cybersecurity.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Badge</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="PMI Project Management Ready.png">
+                        <img src="PMI Project Management Ready.png" alt="PMI Project Management Certification">
+                    </div>
+                    <h3>PMI Project Management Ready™</h3>
+                    <p>Recognized for understanding key project management practices</p>
+                    <span class="cert-year">2024</span>
+                    <a href="PMI Project Management Ready.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge" data-logo="IC3_Digital_Literacy_Levels_1.png">
+                        <img src="IC3_Digital_Literacy_Levels_1.png" alt="IC3 Digital Literacy Certification">
+                    </div>
+                    <h3>IC3 Digital Literacy Certification GS6 Level 1</h3>
+                    <p>Certified in essential digital and computer literacy skills</p>
+                    <span class="cert-year">2024</span>
+                    <a href="IC3 GS6 Level l.pdf" class="btn btn-outline" target="_blank" style="margin-top: 15px;">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>My academic journey in information technology and design</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bataan Peninsula State University - Main Campus</h3>
+                        <p>Bachelor of Science in Information Technology</p>
+                        <p><strong>2022 - Present</strong></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bataan National Highschool</h3>
+                        <p>Technical-Vocational-Livelihood, ICT Strand – Computer Systems Servicing (CSS)</p>
+                        <p><strong>2020 – 2022</strong></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>St. Joseph's College of Balanga City, Bataan</h3>
+                        <p>High School Education</p>
+                        <p><strong>2016 – 2020</strong></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>BEPZ Elementary School</h3>
+                        <p>Elementary Education</p>
+                        <p><strong>2010 – 2016</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch for design collaborations or opportunities</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <a href="tel:09386109857" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>09386109857</p>
+                        </div>
+                    </a>
+                    <a href="mailto:vny.btst@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>vny.btst@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="https://maps.app.goo.gl/5nw65KYHEHYbab1L9" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Blk 4 Lot 17 Nagkanayan Upper Tuyo Balanga, Bataan</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder=" " required>
+                            <label for="name" class="form-label">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder=" " required>
+                            <label for="email" class="form-label">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder=" " required>
+                            <label for="subject" class="form-label">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://web.facebook.com/vny.bautista" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/veenyreemaebautista" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/yashamiyuki" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/ven_btst?igsh=bGs1dGZnd2M0OXJv&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Veeny Ree Mae Bautista. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

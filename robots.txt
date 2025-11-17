@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://veenyreemae.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow social media bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Facebot
+Allow: /
