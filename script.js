@@ -1,8 +1,544 @@
 // Enhanced Launch Screen Animation
+
+document.addEventListener('DOMContentLoaded', function() {
+    const launchScreen = document.getElementById('launchScreen');
+    const particlesContainer = document.getElementById('particlesContainer');
+    // Enhanced Mobile Menu Functionality
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    // Enhanced Mobile Menu Functionality
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    // Toggle menu
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        menuToggle.querySelector('i').classList.toggle('fa-bars');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking on nav items
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Enhanced Launch Screen Animation
 document.addEventListener('DOMContentLoaded', function() {
     const launchScreen = document.getElementById('launchScreen');
     const particlesContainer = document.getElementById('particlesContainer');
     
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Create floating particles
+    for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+        particle.style.animationDuration = `${8 + Math.random() * 7}s`;
+        particlesContainer.appendChild(particle);
+    }
+    
+    // Animate floral elements
+    gsap.to('.floral-item', {
+        opacity: 0.3,
+        duration: 2,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+    
+    // Animate main content
+    gsap.to('.main-logo', {
+        scale: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        delay: 0.2
+    });
+    
+    gsap.to('.name-title', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.4
+    });
+    
+    gsap.to('.subtitle', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.6
+    });
+    
+    gsap.to('.dot', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        delay: 0.8
+    });
+    
+    // Hide launch screen after 2 seconds
+    setTimeout(() => {
+        gsap.to(launchScreen, {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            onComplete: () => {
+                launchScreen.classList.add('hidden');
+                // Start main content animations
+                initMainAnimations();
+            }
+        });
+    }, 2000);
+});
+
+// Performance optimization: Lazy loading and code splitting
+class PortfolioOptimizer {
+    constructor() {
+        this.imagesToLazyLoad = [];
+        this.init();
+    }
+
+    init() {
+        this.setupLazyLoading();
+        this.setupPerformanceMonitoring();
+        this.setupResourcePreloading();
+    }
+
+    setupLazyLoading() {
+        // Use Intersection Observer for lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('lazy-loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px', // Start loading 50px before element is visible
+                threshold: 0.1
+            });
+
+            // Observe all lazy images
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for older browsers
+            this.loadAllImages();
+        }
+    }
+
+    loadAllImages() {
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.add('lazy-loaded');
+        });
+    }
+
+    setupPerformanceMonitoring() {
+        // Monitor Core Web Vitals
+        if ('PerformanceObserver' in window) {
+            try {
+                const perfObserver = new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        console.log(`Performance Metric - ${entry.name}: ${entry.value}`);
+                    });
+                });
+
+                perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+            } catch (e) {
+                console.log('Performance monitoring not supported');
+            }
+        }
+
+        // Monitor load times
+        window.addEventListener('load', () => {
+            if (performance.timing) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Page load time: ${loadTime}ms`);
+            }
+        });
+    }
+
+    setupResourcePreloading() {
+        // Preload critical above-the-fold images
+        const criticalImages = [
+            'profile picture - bautista.jpg',
+            'MOS Associate - Bautista.png'
+        ];
+
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    }
+}
+
+// Initialize performance optimizations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    new PortfolioOptimizer();
+});
+
+// Rest of your existing JavaScript functions remain the same...
+// (Keep all your existing modal functionality, animations, form handling, etc.)
+
+// Logo Modal Functionality
+const modal = document.getElementById('logoModal');
+const modalLogo = document.getElementById('modalLogo');
+const modalClose = document.getElementById('modalClose');
+const certBadges = document.querySelectorAll('.cert-badge');
+
+certBadges.forEach(badge => {
+    badge.addEventListener('click', function() {
+        const logoPath = this.getAttribute('data-logo');
+        modalLogo.src = logoPath;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+modalClose.addEventListener('click', function() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Contact Modal Functionality
+const contactModal = document.getElementById('contactModal');
+const contactModalClose = document.getElementById('contactModalClose');
+const contactModalOk = document.getElementById('contactModalOk');
+
+contactModalClose.addEventListener('click', function() {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+contactModalOk.addEventListener('click', function() {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+contactModal.addEventListener('click', function(e) {
+    if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// ... rest of your existing JavaScript code
+    // Toggle menu
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        menuToggle.querySelector('i').classList.toggle('fa-bars');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking on nav items
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Enhanced Launch Screen Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const launchScreen = document.getElementById('launchScreen');
+    const particlesContainer = document.getElementById('particlesContainer');
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Create floating particles
+    for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+        particle.style.animationDuration = `${8 + Math.random() * 7}s`;
+        particlesContainer.appendChild(particle);
+    }
+    
+    // Animate floral elements
+    gsap.to('.floral-item', {
+        opacity: 0.3,
+        duration: 2,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+    
+    // Animate main content
+    gsap.to('.main-logo', {
+        scale: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        delay: 0.2
+    });
+    
+    gsap.to('.name-title', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.4
+    });
+    
+    gsap.to('.subtitle', {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.6
+    });
+    
+    gsap.to('.dot', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        delay: 0.8
+    });
+    
+    // Hide launch screen after 2 seconds
+    setTimeout(() => {
+        gsap.to(launchScreen, {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            onComplete: () => {
+                launchScreen.classList.add('hidden');
+                // Start main content animations
+                initMainAnimations();
+            }
+        });
+    }, 2000);
+});
+
+// Performance optimization: Lazy loading and code splitting
+class PortfolioOptimizer {
+    constructor() {
+        this.imagesToLazyLoad = [];
+        this.init();
+    }
+
+    init() {
+        this.setupLazyLoading();
+        this.setupPerformanceMonitoring();
+        this.setupResourcePreloading();
+    }
+
+    setupLazyLoading() {
+        // Use Intersection Observer for lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('lazy-loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px', // Start loading 50px before element is visible
+                threshold: 0.1
+            });
+
+            // Observe all lazy images
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for older browsers
+            this.loadAllImages();
+        }
+    }
+
+    loadAllImages() {
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.add('lazy-loaded');
+        });
+    }
+
+    setupPerformanceMonitoring() {
+        // Monitor Core Web Vitals
+        if ('PerformanceObserver' in window) {
+            try {
+                const perfObserver = new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        console.log(`Performance Metric - ${entry.name}: ${entry.value}`);
+                    });
+                });
+
+                perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+            } catch (e) {
+                console.log('Performance monitoring not supported');
+            }
+        }
+
+        // Monitor load times
+        window.addEventListener('load', () => {
+            if (performance.timing) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Page load time: ${loadTime}ms`);
+            }
+        });
+    }
+
+    setupResourcePreloading() {
+        // Preload critical above-the-fold images
+        const criticalImages = [
+            'profile picture - bautista.jpg',
+            'MOS Associate - Bautista.png'
+        ];
+
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    }
+}
+
+// Initialize performance optimizations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    new PortfolioOptimizer();
+});
+
+// Rest of your existing JavaScript functions remain the same...
+// (Keep all your existing modal functionality, animations, form handling, etc.)
+
+// Logo Modal Functionality
+const modal = document.getElementById('logoModal');
+const modalLogo = document.getElementById('modalLogo');
+const modalClose = document.getElementById('modalClose');
+const certBadges = document.querySelectorAll('.cert-badge');
+
+certBadges.forEach(badge => {
+    badge.addEventListener('click', function() {
+        const logoPath = this.getAttribute('data-logo');
+        modalLogo.src = logoPath;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+modalClose.addEventListener('click', function() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Contact Modal Functionality
+const contactModal = document.getElementById('contactModal');
+const contactModalClose = document.getElementById('contactModalClose');
+const contactModalOk = document.getElementById('contactModalOk');
+
+contactModalClose.addEventListener('click', function() {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+contactModalOk.addEventListener('click', function() {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+contactModal.addEventListener('click', function(e) {
+    if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
     // Create floating particles
     for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
@@ -733,5 +1269,8 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+
+
 // Initialize project filters
 initProjectFilters();
+
