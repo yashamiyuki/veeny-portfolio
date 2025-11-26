@@ -715,17 +715,27 @@ section {
     position: relative;
     z-index: 1;
     transition: var(--transition);
-    animation: profileFloat 6s ease-in-out infinite;
+    /* Chill floating animation: slower and subtle */
+    animation: profileFloat 30s ease-in-out infinite;
 }
 
 @keyframes profileFloat {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(2deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+    0% {
+        transform: translateY(0px) rotate(-0.4deg);
+        box-shadow: 0 0 18px rgba(138,43,226,0.22), inset 0 0 10px rgba(255,255,255,0.06);
+    }
+    50% {
+        transform: translateY(-6px) rotate(0.4deg);
+        box-shadow: 0 0 48px rgba(138,43,226,0.36), inset 0 0 18px rgba(255,255,255,0.09);
+    }
+    100% {
+        transform: translateY(0px) rotate(-0.4deg);
+        box-shadow: 0 0 18px rgba(138,43,226,0.22), inset 0 0 10px rgba(255,255,255,0.06);
+    }
 }
 
 .profile-img:hover {
-    transform: scale(1.05);
+    transform: translateY(0) scale(1.05) rotate(0deg);
     box-shadow: 
         0 0 0 15px rgba(138, 43, 226, 0.2),
         0 0 80px rgba(138, 43, 226, 0.6),
@@ -735,14 +745,36 @@ section {
 .profile-container::before {
     content: '';
     position: absolute;
-    width: 110%;
-    height: 110%;
+    /* keep the decorative ring slightly larger but avoid downward overlap */
+    width: 105%;
+    height: 105%;
     border: 3px dashed var(--accent);
     border-radius: 50%;
-    top: -5%;
-    left: -5%;
-    animation: rotate 25s linear infinite;
+    top: -2%;
+    left: -2%;
+    animation: rotate 35s linear infinite;
     z-index: 0;
+}
+
+/* Lazy-loading helper: initial placeholder and smooth reveal */
+.profile-img.lazy {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+    /* Pause animation while showing placeholder */
+    animation-play-state: paused;
+}
+
+.profile-img.lazy-loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.9s ease, transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    /* start the gentle float once the image is loaded */
+    animation-play-state: running;
+}
+
+/* Add spacing under the about block so decorative ring doesn't overlap following sections */
+.about-content {
+    margin-bottom: 48px;
 }
 
 .profile-decoration {
@@ -1641,79 +1673,6 @@ footer::before {
     }
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-        margin-top: 20px;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-links li {
-        margin: 10px 0;
-    }
-    
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .section-title h2 {
-        font-size: 2.2rem;
-    }
-
-    .name-title {
-        font-size: 1.8rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .main-logo {
-        font-size: 4rem;
-    }
-
-    .profile-img {
-        width: 280px;
-        height: 280px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .project-links {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .project-link {
-        margin-bottom: 10px;
-    }
-
-    /* Hide cursor on mobile */
-    .cursor, .cursor-follower {
-        display: none;
-    }
-}
-
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -2173,4 +2132,123 @@ img {
 p, h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+/* Fix for scrollable sections and faster animations */
+@media (max-width: 768px) {
+    /* Fix section stability - prevent unwanted scrolling */
+    section {
+        overflow: hidden !important;
+        position: relative;
+    }
+    
+    .container {
+        overflow: hidden;
+    }
+    
+    /* Faster animations for mobile */
+    * {
+        animation-duration: 0.5s !important;
+        transition-duration: 0.3s !important;
+    }
+    
+    /* Specific faster animations */
+    .hero-content h1,
+    .hero-content p,
+    .hero-buttons,
+    .about-text,
+    .about-image,
+    .skill-category,
+    .project-card,
+    .cert-card,
+    .timeline-item,
+    .contact-item,
+    .contact-form,
+    .section-title {
+        animation-duration: 0.6s !important;
+        transition-duration: 0.4s !important;
+    }
+    
+    /* Fix hero section specifically */
+    .hero {
+        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
+        padding: 120px 0 80px;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Ensure no transform issues causing scroll */
+    .hero-content h1,
+    .hero-content p,
+    .hero-buttons {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    /* Fix floating shapes positioning */
+    .floating-shapes {
+        z-index: 1;
+    }
+    
+    .shape {
+        animation-duration: 8s !important;
+    }
+}
+
+/* Even faster animations for very small devices */
+@media (max-width: 480px) {
+    * {
+        animation-duration: 0.4s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    .hero {
+        padding: 100px 0 60px;
+        height: 100vh;
+        min-height: 100vh;
+    }
+    
+    /* Disable some animations on very small devices for performance */
+    .bg-shape {
+        animation: none !important;
+    }
+    
+    .floral-item {
+        animation: none !important;
+    }
+}
+
+/* Fix for iOS specific issues */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+        height: -webkit-fill-available;
+    }
+    
+    section {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Ensure all sections are stable and not scrollable */
+section {
+    overflow: hidden;
+    position: relative;
+}
+
+.hero {
+    overflow: hidden;
+}
+
+/* Fix for any transform issues that might cause scroll */
+.gsap-marker-start,
+.gsap-marker-end,
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end {
+    display: none !important;
 }
